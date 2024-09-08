@@ -1,46 +1,43 @@
-"use strict";
-
-var _express = _interopRequireDefault(require("express"));
-var _cookieParser = _interopRequireDefault(require("cookie-parser"));
-var _path = _interopRequireDefault(require("path"));
-var _url = require("url");
-var _authenticationController = require("./controllers/authentication.controller.js");
-var _authorization = require("./middlewares/authorization.js");
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+import express from "express";
+import cookieParser from 'cookie-parser';
 // Fix para __dirname
+import path from 'path';
+import { fileURLToPath } from 'url';
+var __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { methods as authentication } from "./controllers/authentication.controller.js";
+import { methods as authorization } from "./middlewares/authorization.js";
 
-var _dirname = _path["default"].dirname((0, _url.fileURLToPath)(import.meta.url));
 // Server
-var app = (0, _express["default"])();
+var app = express();
 var port = process.env.PORT || 4000;
 app.listen(port, function () {
   console.log("Servidor corriendo en puerto ".concat(port));
 });
 
 // Configuración
-app.use(_express["default"]["static"](_path["default"].join(_dirname, "public")));
-app.use(_express["default"].json());
-app.use((0, _cookieParser["default"])());
+app.use(express["static"](path.join(__dirname, "public")));
+app.use(express.json());
+app.use(cookieParser());
 
 // Rutas
-app.get("/", _authorization.methods.soloPublico, function (req, res) {
-  return res.sendFile(_path["default"].join(_dirname, "/pages/admin/admin.html"));
+app.get("/", authorization.soloPublico, function (req, res) {
+  return res.sendFile(path.join(__dirname, "/pages/admin/admin.html"));
 });
-app.get("/register", _authorization.methods.soloPublico, function (req, res) {
-  return res.sendFile(_path["default"].join(_dirname, "/pages/register.html"));
+app.get("/register", authorization.soloPublico, function (req, res) {
+  return res.sendFile(path.join(__dirname, "/pages/register.html"));
 });
-app.get("/login", _authorization.methods.soloPublico, function (req, res) {
-  return res.sendFile(_path["default"].join(_dirname, "/pages/login.html"));
+app.get("/login", authorization.soloPublico, function (req, res) {
+  return res.sendFile(path.join(__dirname, "/pages/login.html"));
 });
-app.get("/pag", _authorization.methods.soloAdmin, function (req, res) {
-  return res.sendFile(_path["default"].join(_dirname, "/pages/admin/adminc.html"));
+app.get("/pag", authorization.soloAdmin, function (req, res) {
+  return res.sendFile(path.join(__dirname, "/pages/admin/adminc.html"));
 });
-app.post("/api/login", _authenticationController.methods.login);
-app.post("/api/register", _authenticationController.methods.register);
+app.post("/api/login", authentication.login);
+app.post("/api/register", authentication.register);
 
 // Manejo de errores
 app.use(function (req, res, next) {
-  res.status(404).sendFile(_path["default"].join(_dirname, 'pages', '404.html')); // Página 404 personalizada
+  res.status(404).sendFile(path.join(__dirname, 'pages', '404.html')); // Página 404 personalizada
 });
 app.use(function (err, req, res, next) {
   console.error(err.stack);

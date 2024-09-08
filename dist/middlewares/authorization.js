@@ -1,14 +1,7 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.methods = void 0;
-var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
-var _dotenv = _interopRequireDefault(require("dotenv"));
-var _authenticationController = require("./../controllers/authentication.controller.js");
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
-_dotenv["default"].config();
+import jsonwebtoken from "jsonwebtoken";
+import dotenv from "dotenv";
+import { usuarios } from "./../controllers/authentication.controller.js";
+dotenv.config();
 function soloAdmin(req, res, next) {
   var logueado = revisarCookie(req);
   if (logueado) return next();
@@ -24,9 +17,9 @@ function revisarCookie(req) {
     var cookieJWT = req.headers.cookie.split("; ").find(function (cookie) {
       return cookie.startsWith("jwt=");
     }).slice(4);
-    var decodificada = _jsonwebtoken["default"].verify(cookieJWT, process.env.JWT_SECRET);
+    var decodificada = jsonwebtoken.verify(cookieJWT, process.env.JWT_SECRET);
     console.log(decodificada);
-    var usuarioAResvisar = _authenticationController.usuarios.find(function (usuario) {
+    var usuarioAResvisar = usuarios.find(function (usuario) {
       return usuario.user === decodificada.user;
     });
     console.log(usuarioAResvisar);
@@ -38,7 +31,7 @@ function revisarCookie(req) {
     return false;
   }
 }
-var methods = exports.methods = {
+export var methods = {
   soloAdmin: soloAdmin,
   soloPublico: soloPublico
 };

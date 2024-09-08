@@ -1,5 +1,3 @@
-"use strict";
-
 document.getElementById("salir").addEventListener("click", function (e) {
   e.preventDefault(); // Prevenir el comportamiento por defecto del enlace
 

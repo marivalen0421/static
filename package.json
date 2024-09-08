@@ -2,17 +2,14 @@
   "name": "registro-y-login-en-vivo",
   "version": "1.0.0",
   "description": "",
-  "main": "app/index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "node  dist/index.js",
-    "dev": "nodemon --exec node app/index.js",
-    "build": "babel app -d dist",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec babel-node app/index.js",
+    "build": "babel app --out-dir dist --ignore 'app/**/*.test.js'",
     "prod": "cross-env NODE_ENV=production node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
