@@ -5,8 +5,10 @@
   "main": "app/index.js",
   "type": "module",
   "scripts": {
-    "start": "node  app/index.js",
-    "dev": "nodemon --exec node app/index.js"
+    "start": "node  dist/index.js",
+    "dev": "nodemon --exec node app/index.js",
+    "build": "babel app -d dist",
+    "prod": "cross-env NODE_ENV=production node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,10 @@
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.22"
   }
 }
