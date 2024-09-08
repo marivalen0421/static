@@ -7,8 +7,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --exec babel-node app/index.js",
-    "build": "babel app --out-dir dist --ignore 'app/**/*.test.js' && npm run copy-static",
-    "copy-static": "xcopy app\\pages dist\\pages /E /I && xcopy app\\public dist\\public /E /I",
+    "build": "babel app --out-dir dist --ignore 'app/**/*.test.js'",
     "prod": "cross-env NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
