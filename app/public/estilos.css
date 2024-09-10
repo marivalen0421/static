@@ -116,17 +116,23 @@ main .sobre-nosotros{
     background: #4d0686;
     color: #fff;
     border-radius: 50%;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-weight: bold;
     width: 30px;
+    min-width: 30px;
     height: 30px;
+    min-height: 30px;
     padding: 2px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
     margin-right: 5px;
 }
 
 .contenido-textos p{
+    display: flex;
+    gap: 1rem;
     font-family: "Comfortaa", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
