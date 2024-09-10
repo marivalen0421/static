@@ -199,15 +199,25 @@ main .sobre-nosotros{
 
 /* Clients */
 
+.contenido-texto-card h4 {
+    font-size: x-large;
+}
+
 .cards{
     display: flex;
     justify-content: space-evenly;
+    gap: 1rem;
+}
+@media (min-width: 768px) {
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .cards .card{
     background: #4d0686;
     display: flex;
-    width: 46%;
     height: 200px;
     align-items: center;
     justify-content: space-evenly;
