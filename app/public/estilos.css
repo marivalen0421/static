@@ -66,6 +66,7 @@ header .textos-header{
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    padding: 1rem; 
 }
 
 .textos-header h1{ 
