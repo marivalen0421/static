@@ -456,6 +456,9 @@ footer{
 }
 
 /* Portafolio */
+.texto300 {
+    font-weight: 300;
+}
 .contenedor {
     width: 95%;
     max-width: 1200px;
