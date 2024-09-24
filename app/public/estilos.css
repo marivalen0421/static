@@ -33,9 +33,9 @@ header {
     height: 600px;
     background: #bc4e9c;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(img/fondo.jpg);
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(img/fondo.webp);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(img/fondo.jpg);
+    background: linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(img/fondo.webp);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-attachment: fixed;
@@ -67,6 +67,21 @@ header .textos-header{
     flex-direction: column;
     text-align: center;
     padding: 1rem; 
+}
+
+header nav a {
+    padding: 5px;
+    border-radius: 0.2rem;
+    display: inline-flex;
+}
+header nav a.actual {
+    border: 1px solid white;
+}
+header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.79);
+}
+nav a img {
+    height: 22px;
 }
 
 .textos-header h1{ 

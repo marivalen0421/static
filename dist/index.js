@@ -23,6 +23,9 @@ app.use(cookieParser());
 app.get("/", authorization.soloPublico, function (req, res) {
   return res.sendFile(path.join(__dirname, "/pages/admin/admin.html"));
 });
+app.get("/en", function (req, res) {
+  return res.sendFile(path.join(__dirname, "/pages/indexEn.html"));
+});
 app.get("/register", authorization.soloPublico, function (req, res) {
   return res.sendFile(path.join(__dirname, "/pages/register.html"));
 });
