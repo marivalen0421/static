@@ -69,6 +69,21 @@ header .textos-header{
     padding: 1rem; 
 }
 
+header nav a {
+    padding: 5px;
+    border-radius: 0.2rem;
+    display: inline-flex;
+}
+header nav a.actual {
+    border: 1px solid white;
+}
+header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.79);
+}
+nav a img {
+    height: 22px;
+}
+
 .textos-header h1{ 
     font-family: "New Amsterdam", sans-serif;
     font-weight: 400;
