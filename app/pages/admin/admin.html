@@ -324,6 +324,23 @@
         </section>
     </main>
 
+    <form action="/correo/contacto" method="POST">
+        <div>
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+        </div>
+        <div>
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" name="correo" id="correo" placeholder="Correo Electrónico">
+        </div>
+        <div>
+            <label for="mensaje">Mensaje</label>
+            <textarea name="mensaje" id="mensaje" placeholder="Déjanos un mensaje"></textarea>
+        </div>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
     <!-- Animaciones -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>

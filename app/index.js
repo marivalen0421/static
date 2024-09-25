@@ -7,9 +7,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 import {methods as authentication} from "./controllers/authentication.controller.js";
 import {methods as authorization} from "./middlewares/authorization.js";
+import {enviarCorreo} from "./controllers/contacto.controller.js";
 
 // Server
 const app = express();
+
+// Habilitar lectura de datos de formularios tipo text
+app.use( express.urlencoded( {extended: true}) )
+
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
@@ -24,6 +29,7 @@ app.use(cookieParser());
 // Rutas
 app.get("/", authorization.soloPublico, (req, res) => res.sendFile(path.join(__dirname, "/pages/admin/admin.html")));
 app.get("/en", (req, res) => res.sendFile(path.join(__dirname, "/pages/indexEn.html")));
+app.post("/correo/contacto", enviarCorreo )
 app.get("/register", authorization.soloPublico, (req, res) => res.sendFile(path.join(__dirname, "/pages/register.html")));
 app.get("/login", authorization.soloPublico, (req, res) => res.sendFile(path.join(__dirname, "/pages/login.html")));
 app.get("/pag", authorization.soloAdmin, (req, res) => res.sendFile(path.join(__dirname, "/pages/admin/adminc.html")));
