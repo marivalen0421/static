@@ -317,6 +317,27 @@
         </section>
     </main>
 
+    <div class="cotenedor formulario">
+        <form action="/correo/contacto" method="POST" class="default-form">
+            <h3>Contáctanos</h3>
+            <div class="campo">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="campo">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" name="correo" id="correo" placeholder="Correo Electrónico">
+            </div>
+            <div class="campo">
+                <label for="mensaje">Mensaje</label>
+                <textarea name="mensaje" id="mensaje" placeholder="Déjanos un mensaje" rows="4" cols="4"></textarea>
+            </div>
+            <div class="campo">
+                <input type="submit" value="Enviar" class="btn btn-enviar">
+            </div>
+        </form>
+    </div>
+
     <!-- Animaciones -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>
