@@ -621,7 +621,7 @@ footer{
 /************* FORM *************/
 .default-form {
     max-width: 800px;
-    margin: 3rem  auto 0 auto; 
+    margin: 0 auto 0 auto; 
 }
 .default-form h3 {
     color: #616065;
@@ -664,6 +664,20 @@ footer{
 }
 .default-form input[type="submit"]:hover {
     cursor: pointer;
+}
+@media (max-width: 700px) {
+    .default-form {
+        margin: 1rem;
+    }
+    .default-form .campo {
+        margin-bottom: 2rem;
+        display: flex;   
+        flex-direction: column;
+    }
+    .default-form label {
+        flex: 0 0 2rem;
+        margin-bottom: .5rem;
+    }
 }
 
 .btn {
