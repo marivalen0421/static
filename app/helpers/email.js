@@ -19,7 +19,7 @@ const emailRegistro = async (datos) => {
     // sendMail with npm nodemailer
     await transport.sendMail({
         from: 'Grilla\'s Group',
-        to: 'maria.hernandez52@correo.tdea.edu.co',
+        to: 'valentinahernandezciri556@gmail.com',
         subject: 'Contacto Portafolio',
         text: `Nombre: ${nombre}; Correo: ${correo}; Mensaje: ${mensaje}`,
         html:`
