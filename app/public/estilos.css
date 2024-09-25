@@ -617,3 +617,72 @@ footer{
     font-weight: bold;
     margin: 0;
 }
+
+/************* FORM *************/
+.default-form {
+    max-width: 800px;
+    margin: 3rem  auto 0 auto; 
+}
+.default-form h3 {
+    color: #616065;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+.default-form .campo {
+    margin-bottom: 2rem;
+    display: flex;   
+}
+.default-form label {
+    padding-top: 0.7rem;
+    flex: 0 0 18rem;
+    font-size: 1.2rem;
+    color: #4d0686;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.default-form input[type="email"],
+.default-form input[type="password"],
+.default-form input[type="text"],
+.default-form input[type="number"],
+.default-form input[type="file"],
+.default-form select,
+.default-form textarea  {
+    flex: 1;
+    height: 4rem;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid #4d0686;
+} 
+.default-form textarea {
+    height: 10rem;
+}
+.default-form input[type="submit"] {
+    margin-top: .6rem;
+    margin-bottom: 3rem;
+}
+.default-form input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.btn {
+    font-size: 1.2rem;
+    padding: 1rem 4rem;
+    border-radius: .6rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color .3s ease-out;
+    display: block;
+    border:none;
+}
+
+.btn-enviar {
+    background-color: #4d0686;
+}
+.btn-enviar:hover {
+    cursor: pointer;
+    background-color: #390960;
+}
