@@ -14,23 +14,26 @@ const emailRegistro = async (datos) => {
     });
 
     const {nombre, correo, mensaje} = datos
-
-    const desdeCorreo = `Grilla\'s Group ${correo}`;
-    console.log(desdeCorreo);
-    
+    const from = {name : 'Grilla\'s group', address: 'felgart22@gmail.com'}
 
     // Enviar el email
     // sendMail with npm nodemailer
     await transport.sendMail({
-        from: desdeCorreo,
+        from,
         to: 'juan.gonzalez83@correo.tdea.edu.co',
-        subject: 'Contacto Portafolio',
+        subject: `Contacto Portafolio - ${nombre}`,
         text: `Nombre: ${nombre}; Correo: ${correo}; Mensaje: ${mensaje}`,
         html:`
         <p>Nombre: ${nombre}</p>
         <p>Correo: ${correo}</p>
         <p>Mensaje: ${mensaje}</p>
         `
+    }, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Correo enviado satisfactoriamente: ' + info.response);
+      }
     })
 }
 
